@@ -1,5 +1,7 @@
 package ecuaciones.polinomicas;
 
+import java.util.Arrays;
+
 public class Polinomio {
 	private int grado;
 	private double[] coeficientes;
@@ -41,27 +43,38 @@ public class Polinomio {
 	}
 
 	Polinomio productoPolinomio(Polinomio poli) {
-		
-		double[] vec = {0,0,0,0,0,0};
-		Polinomio poliResultado = new Polinomio(this.grado + poli.grado , vec);
-		int gradoA=0;
-		int gradoB=0;
-		
-		for(int i=0; i < this.grado ; i++){
-			for(int j=0; j < poli.grado ; j++){
-				
-				gradoA = this.grado-i;
-				gradoB = poli.grado-j;
-				
-				poliResultado.coeficientes[gradoA+gradoB] += this.coeficientes[i] * poli.coeficientes[j]; 
-			}
-			
-			return poliResultado;
-		}
-		
-		
-		return poliResultado;
 
+		//inicializo vecotr de coeficientes
+		double coeficientes[] = new double[this.grado + poli.grado+1];
+		//Creo el polinomio resultado
+		Polinomio poliResultado = new Polinomio(this.grado + poli.grado,
+				coeficientes);
+		int gradoA = 0;
+		int gradoB = 0;
+
+		for (int i = 0; i < this.grado + 1; i++) {
+			for (int j = 0; j < poli.grado + 1; j++) {
+
+				gradoA = this.grado - i;
+				gradoB = poli.grado - j;
+
+				poliResultado.coeficientes[gradoA + gradoB] += this.coeficientes[i]
+						* poli.coeficientes[j];
+			}
+
+		}		
+		return    poliResultado;
+	}
+
+	/**
+	 * Muestra por pantalla el polinomio de la forma 1X^2 + 2X + 6 
+	 */
+	public void mostrarPolinomio() {
+
+		for (int i = 0; i < (this.grado); i++) {
+			System.out.print(this.getCoeficientes()[i]+"X"+"^"+(this.grado-i)+" + ");
+		}
+		System.out.print(this.getCoeficientes()[this.grado]);
 	}
 
 	public int getGrado() {
@@ -79,6 +92,5 @@ public class Polinomio {
 	public void setCoeficientes(double[] coeficientes) {
 		this.coeficientes = coeficientes;
 	}
-	
-	
+
 }

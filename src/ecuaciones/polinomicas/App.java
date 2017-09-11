@@ -12,9 +12,7 @@ public class App {
 		
 		Polinomio pepe = polinomio.productoPolinomio(polinomio2);
 		
-		for(int i=0; i < 6 ; i++){
-			System.out.println(pepe.getCoeficientes()[i]);
-		}
+		pepe.mostrarPolinomio();
 		
 		
 	}
