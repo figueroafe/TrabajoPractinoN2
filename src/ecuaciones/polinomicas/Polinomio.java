@@ -1,16 +1,59 @@
 package ecuaciones.polinomicas;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Polinomio {
+	
+	
 	private int grado;
 	private double[] coeficientes;
 
+	
+	/**
+	 * Constructor parametrizado de la clase
+	 * 
+	 * @param grado
+	 * @param coeficientes
+	 */
 	public Polinomio(int grado, double[] coeficientes) {
 		this.grado = grado;
 		this.coeficientes = coeficientes;
 	}
 
+	/**
+	 * Constructor de la clase mediante la ruta del archivo input
+	 * 
+	 * @param pathArchivoIn
+	 */
+	public Polinomio(String pathArchivoIn) {		
+		
+		
+		try {
+			// Con scanner leo el contenido del archivo
+			Scanner sc = new Scanner(new File(pathArchivoIn));		
+			sc.useLocale(Locale.ENGLISH);
+			//asigno el grado del polinomio
+			this.grado = sc.nextInt();
+			//inicializo vecotr de coeficientes
+			//double coeficientes[] = new double[this.grado];
+			
+			//asigno los coeficientes del polinomio en el vector
+			for (int i = 0; i < this.grado ; i++) {
+				this.coeficientes[i] =sc.nextDouble();
+			}
+		
+			sc.close();
+		
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	double evaluarMSucesivas(double x) {
 		return x;
 	}
@@ -42,6 +85,12 @@ public class Polinomio {
 
 	}
 
+	/**
+	 * Multiplicacion de dos polinomios
+	 * 
+	 * @param poli
+	 * @return
+	 */
 	Polinomio productoPolinomio(Polinomio poli) {
 
 		//inicializo vecotr de coeficientes
