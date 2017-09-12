@@ -2,7 +2,6 @@ package ecuaciones.polinomicas;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -39,10 +38,9 @@ public class Polinomio {
 			//asigno el grado del polinomio
 			this.grado = sc.nextInt();
 			//inicializo vecotr de coeficientes
-			//double coeficientes[] = new double[this.grado];
-			
+			this.coeficientes = new double[this.grado+1];			
 			//asigno los coeficientes del polinomio en el vector
-			for (int i = 0; i < this.grado ; i++) {
+			for (int i = 0; i < this.grado+1 ; i++) {
 				this.coeficientes[i] =sc.nextDouble();
 			}
 		
