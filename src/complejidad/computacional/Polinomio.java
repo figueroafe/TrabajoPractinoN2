@@ -52,20 +52,20 @@ public class Polinomio {
 	 * Utilizo calculo de potencia por multiplicaciones sucesivas. Realizado en
 	 * metodo "potencia"
 	 * 
-	 * Complejidad computacional = O(n2)
+	 * Complejidad computacional = O(n)*O(n) = O(n2)
 	 * 
 	 * @param x
 	 * @return
 	 */
-	double evaluarMSucesivas(double x) {
+	public double evaluarMSucesivas(double x) {
 
 		int resultado = 0;
 		int gradoTermino;
 
-		for (int i = 0; i < this.grado + 1; i++) {
+		for (int i = 0; i < this.grado + 1; i++) {// for -->O(n)
 			gradoTermino = this.grado - i;
 
-			resultado += this.coeficientes[i] * potencia(x, gradoTermino);
+			resultado += this.coeficientes[i] * potencia(x, gradoTermino);// metodo potencia -->O(n)
 		}
 		return resultado;
 	}
@@ -74,21 +74,21 @@ public class Polinomio {
 	 * Utilizo el calculo de potencias recursivamente sin tener en cuenta si el
 	 * exponente si es par o impar. Ultilizo el metodo "potenciaRecursiva"
 	 * 
-	 * Complejidad Computacional = O(n) + O(n) = O(n)
+	 * Complejidad Computacional = O(n) * O(n) = O(n2)
 	 * 
 	 * @param x
 	 * @return
 	 */
-	double evaluarRecursiva(double x) {
+	public double evaluarRecursiva(double x) {
 
 		int resultado = 0;
 		int gradoTermino;
 
-		for (int i = 0; i < this.grado + 1; i++) {
+		for (int i = 0; i < this.grado + 1; i++) {// for--> O(n)
 			gradoTermino = this.grado - i;
 
 			resultado += this.coeficientes[i]
-					* potenciaRecursiva(x, gradoTermino);
+					* potenciaRecursiva(x, gradoTermino);// Recursiva Impar--> O(n)
 		}
 		return resultado;
 	}
@@ -98,40 +98,70 @@ public class Polinomio {
 	 * exponente es par o impar. Ultilizo el metodo "potenciaRecursivaPar" y
 	 * "potenciaRecursiva"
 	 * 
-	 * Complejidad Computacional = O(n) + O(n) + (LOG n) = O(n) 
+	 * Complejidad Computacional= O(n) * (LOG n) * O(n) = O(n2 log n)
 	 * 
 	 * @param x
 	 * @return
 	 */
-	double evaluarRecursivaPar(double x) {
+	public double evaluarRecursivaPar(double x) {
 		int resultado = 0;
 		int gradoTermino;
 
-		for (int i = 0; i < this.grado + 1; i++) {
+		for (int i = 0; i < this.grado + 1; i++) { // for -->O(n)
 			gradoTermino = this.grado - i;
 
 			if (gradoTermino % 2 == 0)
 				resultado += this.coeficientes[i]
-						* potenciaRecursivaPar(x, gradoTermino);
+						* potenciaRecursivaPar(x,gradoTermino);// --> recursiba par O(log n)
 			else
 				resultado += this.coeficientes[i]
-						* potenciaRecursiva(x, gradoTermino);
+						* potenciaRecursiva(x, gradoTermino);// --> recursiva impar O(n)
 
 		}
 		return resultado;
 
 	}
 
-	double evaluarProgDinamica(double x) {
-		return x;
+	/**
+	 * Evaluo el polinomio con las potencias de x ya almacenadas, tomando a
+	 * estas como un pre-proceso
+	 * 
+	 * Complejidad Computacional = O(n)
+	 * 
+	 * @param x
+	 * @return
+	 */
+	public double evaluarProgDinamica(double x) {
+
+		double resultado = 0;
+		double pow = 1;
+		for (int i = this.grado; i >= 0; i--) {
+			resultado += this.getCoeficientes()[i] * pow;
+			pow *= x;// Almaceno las potencias
+		}
+
+		return resultado;
 	}
 
-	double evaluarMejorada(double x) {
-		double resultado = 0;
-		
-		
-		return resultado;
+	/**
+	 * Evaluamos el metodo con otro tipo de calculo de x
+	 * 
+	 * Complejidad Computacional = O(n)
+	 * 
+	 * @param x
+	 * @return
+	 */
+	public double evaluarMejorada(double x) {
 
+		double almacenarPow = 1;
+		double resultado = 0;
+		int gradoTermino;
+		for (int i = 0; i < this.grado + 1; i++) {
+			gradoTermino = this.grado - i;
+			resultado += this.coeficientes[gradoTermino] * almacenarPow;
+			almacenarPow *= x;
+		}
+		return resultado;
 	}
 
 	/**
@@ -142,7 +172,7 @@ public class Polinomio {
 	 * @param x
 	 * @return
 	 */
-	double evaluarPow(double x) {
+	public double evaluarPow(double x) {
 		int resultado = 0;
 		int gradoTermino;
 
@@ -164,7 +194,7 @@ public class Polinomio {
 	 * @param x
 	 * @return
 	 */
-	double evaluarHorner(double x) {
+	public double evaluarHorner(double x) {
 		double resultado = 0;
 
 		resultado = this.coeficientes[0] * x + this.coeficientes[1];
@@ -187,7 +217,7 @@ public class Polinomio {
 	 */
 	public static double potencia(double base, int exponente) {
 
-		double resultado = 0;
+		double resultado = 1;
 
 		if (exponente == 0)
 			return 1;
@@ -230,19 +260,10 @@ public class Polinomio {
 
 		if (exponente == 0)
 			return 1;
-		return potenciaRecursivaPar(base * base, exponente / 2);
-	}
-
-	/**
-	 * Muestra por pantalla el polinomio de la forma 1X^2 + 2X + 6
-	 */
-	public void mostrarPolinomio() {
-
-		for (int i = 0; i < (this.grado); i++) {
-			System.out.print(this.getCoeficientes()[i] + "X" + "^"
-					+ (this.grado - i) + " + ");
-		}
-		System.out.print(this.getCoeficientes()[this.grado]);
+		if(exponente%2==0)
+			return potenciaRecursivaPar(base * base, exponente / 2);
+		else
+			return base * potenciaRecursiva(base, exponente - 1);
 	}
 
 	public int getGrado() {

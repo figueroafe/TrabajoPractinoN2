@@ -23,6 +23,8 @@ public class BinomioDeNewton {
 	 * Obtengo el coeficiente del termino K del binomio utilizando metodos
 	 * iterativos
 	 * 
+	 * Complijidad Computacional = O(n)*O(n)*O(n) = O(n3)
+	 * 
 	 * @param k
 	 * @return
 	 */
@@ -34,6 +36,8 @@ public class BinomioDeNewton {
 	/**
 	 * Obtengo el coeficiente del termino K del binomio utilizando metodos
 	 * recursivos
+	 * 
+	 * Complejidad Computacional = O(n)*O(n)*O(n)=O(n3)
 	 * 
 	 * @param k
 	 * @return
@@ -47,6 +51,8 @@ public class BinomioDeNewton {
 	/**
 	 * Combinatoria en forma iterativa, utilizando metodo factorial
 	 * 
+	 * Comlejidad Computacional = O(n)
+	 * 
 	 * @param m
 	 * @param n
 	 * @return
@@ -57,6 +63,8 @@ public class BinomioDeNewton {
 
 	/**
 	 * combinatoria en forma recursiva
+	 * 
+	 * Complejidad Computacional = O(n)
 	 * 
 	 * @param m
 	 * @param n
@@ -72,6 +80,8 @@ public class BinomioDeNewton {
 	/**
 	 * Calcula el factorial en forma iterativa
 	 * 
+	 * Complejidad computacional = O(n)
+	 * 
 	 * @param n
 	 * @return
 	 */
@@ -85,6 +95,8 @@ public class BinomioDeNewton {
 
 	/**
 	 * Calcula el factorial recursivamente
+	 * 
+	 * Complejidad Computacional = O(n)
 	 * 
 	 * @param n
 	 * @return
@@ -100,15 +112,19 @@ public class BinomioDeNewton {
 	 * Metodo que desarrolla el binomio en forma iterativa y obtiene todos los
 	 * coeficientes del polinomio
 	 * 
+	 * Complejidad Computacional = O(n)
+	 * 
 	 * @return
 	 */
 	public Polinomio desarrolloDelBinomio() {
 
 		double[] coeficientes = new double[this.exponente + 1];
-		Polinomio polinomio = new Polinomio(this.exponente, coeficientes);
-		for (int i = 0; i < exponente + 1; i++) {
-			coeficientes[i] = this.coeficienteK(i);
+		
+		for (int i = 0; i < this.exponente + 1; i++) {
+			coeficientes[i] = this.coeficienteK(this.exponente-i);
 		}
+		Polinomio polinomio = new Polinomio(this.exponente, coeficientes);
+
 		return polinomio;
 	}
 
@@ -116,15 +132,17 @@ public class BinomioDeNewton {
 	 * Metodo que desarrolla el binomio en forma recursiva y obtiene todos los
 	 * coeficientes del polinomio
 	 * 
+	 * Complejidad Computacional = O(n)*O(n3) = O(n4)
+	 * 
 	 * @return
 	 */
 	public Polinomio desarrolloDelBinomioRecursiva() {
 
 		double[] coeficientes = new double[this.exponente + 1];
-		Polinomio polinomio = new Polinomio(this.exponente, coeficientes);
 		for (int i = 0; i < exponente + 1; i++) {
-			coeficientes[i] = this.coeficienteKRecursiva(i);
+			coeficientes[i] = this.coeficienteKRecursiva(this.exponente-i);
 		}
+		Polinomio polinomio = new Polinomio(this.exponente, coeficientes);
 		return polinomio;
 	}
 
