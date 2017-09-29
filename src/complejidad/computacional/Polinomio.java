@@ -59,7 +59,7 @@ public class Polinomio {
 	 */
 	public double evaluarMSucesivas(double x) {
 
-		int resultado = 0;
+		double resultado = 0;
 		int gradoTermino;
 
 		for (int i = 0; i < this.grado + 1; i++) {// for -->O(n)
@@ -81,7 +81,7 @@ public class Polinomio {
 	 */
 	public double evaluarRecursiva(double x) {
 
-		int resultado = 0;
+		double resultado = 0;
 		int gradoTermino;
 
 		for (int i = 0; i < this.grado + 1; i++) {// for--> O(n)
@@ -104,7 +104,7 @@ public class Polinomio {
 	 * @return
 	 */
 	public double evaluarRecursivaPar(double x) {
-		int resultado = 0;
+		double resultado = 0;
 		int gradoTermino;
 
 		for (int i = 0; i < this.grado + 1; i++) { // for -->O(n)
@@ -173,7 +173,7 @@ public class Polinomio {
 	 * @return
 	 */
 	public double evaluarPow(double x) {
-		int resultado = 0;
+		double resultado = 0;
 		int gradoTermino;
 
 		for (int i = 0; i < this.grado + 1; i++) {

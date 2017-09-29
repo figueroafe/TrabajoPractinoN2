@@ -5,6 +5,7 @@ public class BinomioDeNewton {
 	private int a;
 	private int b;
 	private int exponente;
+	private double[][] pascal;
 
 	/**
 	 * Constructor de la clase parametrizado
@@ -48,6 +49,8 @@ public class BinomioDeNewton {
 					.potenciaRecursiva(this.b, this.exponente - k));
 	}
 
+
+
 	/**
 	 * Combinatoria en forma iterativa, utilizando metodo factorial
 	 * 
@@ -58,7 +61,10 @@ public class BinomioDeNewton {
 	 * @return
 	 */
 	public int combinatoria(int m, int n) {
-		return factorial(m) / (factorial(m - n) * factorial(n));
+		int resultado = 0;
+		if ((factorial(m - n) * factorial(n) > 0))
+			resultado = factorial(m) / (factorial(m - n) * factorial(n));
+		return resultado;
 	}
 
 	/**
@@ -119,9 +125,9 @@ public class BinomioDeNewton {
 	public Polinomio desarrolloDelBinomio() {
 
 		double[] coeficientes = new double[this.exponente + 1];
-		
+
 		for (int i = 0; i < this.exponente + 1; i++) {
-			coeficientes[i] = this.coeficienteK(this.exponente-i);
+			coeficientes[i] = this.coeficienteK(this.exponente - i);
 		}
 		Polinomio polinomio = new Polinomio(this.exponente, coeficientes);
 
@@ -140,10 +146,60 @@ public class BinomioDeNewton {
 
 		double[] coeficientes = new double[this.exponente + 1];
 		for (int i = 0; i < exponente + 1; i++) {
-			coeficientes[i] = this.coeficienteKRecursiva(this.exponente-i);
+			coeficientes[i] = this.coeficienteKRecursiva(this.exponente - i);
 		}
 		Polinomio polinomio = new Polinomio(this.exponente, coeficientes);
 		return polinomio;
 	}
 
+	
+	/**
+	 * Se desarrolla el calculo del triangulo de pascal
+	 * 
+	 * Complejidad Computacional = O(n2)
+	 * 
+	 */
+	public void trianguloPascal() {
+		this.pascal = new double[this.exponente + 1][this.exponente + 1];
+
+		for (int i = 0; i < this.exponente + 1; i++) {
+			for (int j = 0; j <= i; j++) {
+				if (j == 0 || j == i)
+					this.pascal[i][j] = 1;
+				else
+					this.pascal[i][j] = this.pascal[i - 1][j]
+							+ this.pascal[i - 1][j - 1];
+
+			}
+		}
+	}
+
+	
+	/**
+	 * Metodo que desarrolla el binomio mediante pasacal
+	 * 
+	 * Complejidad Computacional = O(n)*O(n3) = O(n4)
+	 * 
+	 * @return
+	 */
+	public Polinomio desarrolloDelBinomioPascal() {
+
+		double[] coeficientes = new double[this.exponente + 1];
+		for (int i = 0; i < exponente + 1; i++) {
+			coeficientes[i] = this.coeficienteKConPascal(this.exponente - i);
+		}
+		Polinomio polinomio = new Polinomio(this.exponente, coeficientes);
+		return polinomio;
+	}
+
+
+	/**
+	 * Obtengo el coeficiente del termino K mediate el triangulo de pascal
+	 * 
+	 * @param k
+	 * @return
+	 */
+	public double coeficienteKConPascal(double k) {
+		return (this.pascal[this.exponente][(int) k] * Math.pow(this.a, this.exponente - k) * Math.pow(this.b,k));
+	}
 }

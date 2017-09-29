@@ -1,0 +1,126 @@
+----------
+grado = 3 
+X = 10
+Tiempo ejecucion evaluarMejorada: 	0.006249
+Tiempo ejecucion evaluarRecursiva: 	0.020531
+Tiempo ejecucion evaluarMSucesivas: 	0.013836
+Tiempo ejecucion evaluarPow: 		0.110689
+Tiempo ejecucion evaluarRecursivaPar: 	0.017853
+Tiempo ejecucion evaluarProgDinamica: 	0.018299
+Tiempo ejecucion evaluarHorner: 	0.004016
+----------------------------------------------------
+
+-------------
+grado = 3 
+X = 1000
+Tiempo ejecucion evaluarMejorada: 	0.078554
+Tiempo ejecucion evaluarRecursiva: 	0.023209
+Tiempo ejecucion evaluarMSucesivas: 	0.017406
+Tiempo ejecucion evaluarPow: 		0.093282
+Tiempo ejecucion evaluarRecursivaPar: 	0.023209
+Tiempo ejecucion evaluarProgDinamica: 	0.022316
+Tiempo ejecucion evaluarHorner: 	0.007588
+--------------------------------------------------
+
+--------------
+grado = 10
+X = 10
+Tiempo ejecucion evaluarMejorada: 	0.006694
+Tiempo ejecucion evaluarRecursiva: 	0.022316
+Tiempo ejecucion evaluarMSucesivas: 	0.018746
+Tiempo ejecucion evaluarPow: 		0.12274
+Tiempo ejecucion evaluarRecursivaPar: 	0.020531
+Tiempo ejecucion evaluarProgDinamica: 	0.018746
+Tiempo ejecucion evaluarHorner: 	0.007588
+---------------------------------------------------
+
+-----------
+grado = 10
+X = 1000
+Tiempo ejecucion evaluarMejorada: 	0.006695
+Tiempo ejecucion evaluarRecursiva: 	0.178531
+Tiempo ejecucion evaluarMSucesivas: 	0.028119
+Tiempo ejecucion evaluarPow: 		0.098192
+Tiempo ejecucion evaluarRecursivaPar: 	0.025441
+Tiempo ejecucion evaluarProgDinamica: 	0.019639
+Tiempo ejecucion evaluarHorner: 	0.010712
+----------------------------------------------------
+
+------------
+grado = 100
+X = 10
+Tiempo ejecucion evaluarMejorada: 	0.016514
+Tiempo ejecucion evaluarRecursiva: 	0.313322
+Tiempo ejecucion evaluarMSucesivas: 	0.195046
+Tiempo ejecucion evaluarPow: 		0.157554
+Tiempo ejecucion evaluarRecursivaPar: 	0.080339
+Tiempo ejecucion evaluarProgDinamica: 	0.026779
+Tiempo ejecucion evaluarHorner: 	0.038384
+----------------------------------------------------
+
+------------
+grado = 100
+X = 1000
+Tiempo ejecucion evaluarMejorada: 	0.015621
+Tiempo ejecucion evaluarRecursiva: 	0.307966
+Tiempo ejecucion evaluarMSucesivas: 	0.211113
+Tiempo ejecucion evaluarPow: 		0.142824
+Tiempo ejecucion evaluarRecursivaPar: 	0.082124
+Tiempo ejecucion evaluarProgDinamica: 	0.025441
+Tiempo ejecucion evaluarHorner: 	0.038384
+----------------------------------------------------
+
+--------------
+grado = 500
+X = 1000
+Tiempo ejecucion evaluarMejorada: 	0.055791
+Tiempo ejecucion evaluarRecursiva: 	2.235654
+Tiempo ejecucion evaluarMSucesivas: 	4.94888
+Tiempo ejecucion evaluarPow: 		21.283576
+Tiempo ejecucion evaluarRecursivaPar: 	0.571746
+Tiempo ejecucion evaluarProgDinamica: 	0.074983
+Tiempo ejecucion evaluarHorner: 	0.646282
+-----------------------------------------------------
+
+--------------
+grado = 500
+X = 10
+Tiempo ejecucion evaluarMejorada: 	0.055791
+Tiempo ejecucion evaluarRecursiva: 	1.990175
+Tiempo ejecucion evaluarMSucesivas: 	7.217117
+Tiempo ejecucion evaluarPow: 		0.355723
+Tiempo ejecucion evaluarRecursivaPar: 	0.597633
+Tiempo ejecucion evaluarProgDinamica: 	0.076322
+Tiempo ejecucion evaluarHorner: 	0.638248
+-----------------------------------------------------
+
+--------------
+grado = 1000
+X = 1000
+Tiempo ejecucion evaluarMejorada: 	0.107119
+Tiempo ejecucion evaluarRecursiva: 	12.698911
+Tiempo ejecucion evaluarMSucesivas: 	1.352372
+Tiempo ejecucion evaluarPow: 		0.679311
+Tiempo ejecucion evaluarRecursivaPar: 	1.929474
+Tiempo ejecucion evaluarProgDinamica: 	0.125418
+Tiempo ejecucion evaluarHorner: 	2.420434
+-----------------------------------------------------
+
+--------------
+grado = 1000
+X = 10
+Tiempo ejecucion evaluarMejorada: 	0.115599
+Tiempo ejecucion evaluarRecursiva: 	14.153047
+Tiempo ejecucion evaluarMSucesivas: 	1.403254
+Tiempo ejecucion evaluarPow: 		0.649407
+Tiempo ejecucion evaluarRecursivaPar: 	2.246812
+Tiempo ejecucion evaluarProgDinamica: 	0.1397
+Tiempo ejecucion evaluarHorner: 	2.769016
+----------------------------------------------------
+
+Binomio de Newton
+Tiempo ejecucion evaluarDesarrolloBinomioRecursivo: 	2.936835
+Tiempo ejecucion evaluarCoeficienteK: 	0.001339
+Tiempo ejecucion evaluarCoeficienteKRecursivo: 	0.001339
+Tiempo ejecucion evaluarDesarrolloBinomio: 	0.038385
+
